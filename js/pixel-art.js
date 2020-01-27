@@ -51,9 +51,29 @@ function cambiarColorPaleta(e) {
     document.getElementById('indicador-de-color').style.background = e.target.style.background;
 };
 
-paleta.addEventListener('click', cambiarColorPaleta);
+grillaPixeles.addEventListener('click', cambiarColorDelPixelEnLaGrilla);
 
-function cambiarColorPaleta(e) {
-    document.getElementById('indicador-de-color').style.background = e.target.style.background;
+function cambiarColorDelPixelEnLaGrilla( e ) {
+    e.target.style.background = document.getElementById('indicador-de-color').style.background;
 };
 
+var colorPersonalizado = document.getElementById('color-personalizado');
+
+colorPersonalizado.addEventListener('change', 
+  (function() {
+    colorActual = colorPersonalizado.value;
+    document.getElementById('indicador-de-color').style.background = colorActual;
+
+  })
+);
+
+$('#grilla-pixeles').mousedown(indicarMouseClickDown);
+$('#grilla-pixeles').mouseup(indicarMouseClickUp);
+
+function indicarMouseClickDown(){
+  mouseClickeado = true;
+};
+
+function indicarMouseClickUp(){
+  mouseClickeado = false;
+};
