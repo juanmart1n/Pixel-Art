@@ -51,3 +51,9 @@ function cambiarColorPaleta(e) {
     document.getElementById('indicador-de-color').style.background = e.target.style.background;
 };
 
+paleta.addEventListener('click', cambiarColorPaleta);
+
+function cambiarColorPaleta(e) {
+    document.getElementById('indicador-de-color').style.background = e.target.style.background;
+};
+
