@@ -77,3 +77,41 @@ function indicarMouseClickDown(){
 function indicarMouseClickUp(){
   mouseClickeado = false;
 };
+
+$("#grilla-pixeles").mouseover(modificarColorEnPixelesGilla);
+
+function modificarColorEnPixelesGilla(e){
+    if (mouseClickeado) {
+      $(e.target).css('background-color', $('#indicador-de-color').css('background-color'))
+    };
+};
+
+$('#borrar').click( function() {
+  $('.pixel-grilla').animate( {"background-color":"white"}, 1500 )
+});
+
+$('.imgs').click( function(e) {
+  switch($(e.target).attr('id')) {
+    case "batman":
+      cargarSuperheroe(batman);
+      break;
+    case "wonder":
+      cargarSuperheroe(wonder);
+      break;
+    case "flash":
+      cargarSuperheroe(flash);
+      break;
+    case "invisible":
+      cargarSuperheroe(invisible);
+      break;
+  }
+});
+
+$('#guardar').click(
+  guardarPixelArt
+);
+
+$(document).ready( function() {
+  generarGrillaDePixeles();
+  generarPaletaDeColores();
+});
